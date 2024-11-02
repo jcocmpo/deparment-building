@@ -1,0 +1,11 @@
+.card-container {
+    height: 500px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    justify-content: flex-start; /* Start stacking from the top */
+}
+
+.card {
+    flex: 0 0 auto; /* Prevent cards from stretching */
+}
