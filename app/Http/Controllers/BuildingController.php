@@ -25,8 +25,9 @@ class BuildingController extends Controller
     // Method to store a new building
     public function store(Request $request)
     {
+        // Validate the building name to ensure it's unique within the department
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:buildings,name,NULL,id,department_id,' . $request->department_id, // Ensure unique name within department
             'description' => 'required|string',
             'image' => 'required|url',
             'department_id' => 'required|exists:departments,id',
@@ -47,8 +48,9 @@ class BuildingController extends Controller
     // Method to update the existing building
     public function update(Request $request, $id)
     {
+        // Validate the building name to ensure it's unique within the department
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:buildings,name,' . $id . ',id,department_id,' . $request->department_id, // Ensure unique name within department, except for current building
             'description' => 'required|string',
             'image' => 'required|url',
             'department_id' => 'required|exists:departments,id',

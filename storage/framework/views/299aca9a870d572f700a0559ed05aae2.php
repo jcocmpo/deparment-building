@@ -43,7 +43,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Create Building</button>
-        <a href="<?php echo e(route('buildings.index')); ?>" class="btn btn-secondary">Cancel</a> <!-- Ensure this route exists -->
+        <a href="<?php echo e(route('buildingdash')); ?>" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 <?php $__env->stopSection(); ?>

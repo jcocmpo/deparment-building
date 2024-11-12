@@ -19,6 +19,7 @@
                 <label for="description">Description</label>
             </div>
             <button type="submit" class="btn btn-primary">Update Department</button>
+            <a href="{{ route('departmentdash') }}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 @endsection

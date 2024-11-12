@@ -45,13 +45,13 @@
             <!-- Centered Actions Container -->
             <div class="d-flex justify-content-center align-items-center mx-auto">
                 <a href="{{ route('departments.create') }}" class="btn btn-outline-primary mx-1">
-                    <i class="bi bi-plus-lg"></i> <!-- Create Department -->
+                    <i class="bi bi-plus-lg">Create Department</i> <!-- Create Department -->
                 </a>
             </div>
 
             <div class="d-flex justify-content-center align-items-center mx-auto">
                 <a href="{{ route('buildings.create') }}" class="btn btn-outline-primary mx-1">
-                    <i class="bi bi-plus-lg"></i> <!-- Create Building -->
+                    <i class="bi bi-plus-lg">Create Building</i> <!-- Create Building -->
                 </a>
             </div>
 

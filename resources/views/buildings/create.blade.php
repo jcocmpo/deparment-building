@@ -43,7 +43,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Create Building</button>
-        <a href="{{ route('buildings.index') }}" class="btn btn-secondary">Cancel</a> <!-- Ensure this route exists -->
+        <a href="{{ route('buildingdash') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

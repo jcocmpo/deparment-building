@@ -3,6 +3,14 @@
 @section('content')
 <div class="container mt-5">
     <h2>Create Department</h2>
+    
+    <!-- Display error message if there's a duplicate -->
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <form action="{{ route('departments.store') }}" method="POST">
         @csrf
         <div class="mb-3">
@@ -14,11 +22,14 @@
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
+        
         <div class="mb-3">
             <label for="image" class="form-label">Image URL</label>
             <input type="url" class="form-control" id="image" name="image" placeholder="https://example.com/image.jpg">
         </div>
+        
         <button type="submit" class="btn btn-primary">Create Department</button>
+        <a href="{{ route('departmentdash') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

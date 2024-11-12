@@ -1,7 +1,11 @@
 <style>
 .card-container {
-    height: 900px;
-    overflow-y: auto;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: calc(100% - 250px); /* Ensure the cards fit within the remaining space */
+    margin-left: 250px; /* Align with the sidebar width */
+    overflow: hidden; /* Prevent internal scrollbars */
 }
 
 .card {
@@ -11,6 +15,7 @@
     position: relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
+    width: 100%;
 }
 
 .card:hover {
@@ -22,12 +27,16 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     position: relative;
+    width: 100%;
+    height: 200px;
 }
 
 .card-img {
-    height: 200px;
+    height: 100%;
     width: 100%;
     object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
     transition: transform 0.3s;
 }
 
@@ -36,12 +45,13 @@
 }
 
 .card-body {
-    position: absolute; /* Set to absolute to overlay on the image */
-    bottom: 0; /* Align to the bottom of the image */
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
     padding: 10px;
-    color: #ffffff; /* Text color for visibility */
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6); /* Add a transparent black background */
 }
 
 .card-department {
@@ -69,7 +79,11 @@
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    padding: 10px;
     margin-top: 10px;
+    background-color: #37584F;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .btn-action {
@@ -97,10 +111,11 @@
 }
 </style>
 
-<div class="container mt-5 card-container">
-    <div class="row justify-content-center">
+<!-- Building Cards -->
+<div class="container card-container" style="margin-top: 120px;">
+    <div class="row justify-content-start"> <!-- Use justify-content-center to center align cards -->
         @foreach($buildings as $building)
-            <div class="col-md-8 mb-4">
+            <div class="col-md-4 mb-4"> <!-- Adjust the column size for responsive layout -->
                 <div class="card">
                     <div class="card-img-wrapper">
                         <img src="{{ $building->image }}" class="card-img" alt="{{ $building->name }}">
@@ -111,13 +126,13 @@
                         </div>
                     </div>
                     <div class="button-container">
-                        <a href="{{ route('buildings.edit', $building->id) }}" class="btn-action btn-edit">
+                        <a href="{{ route('buildings.edit', $building->id) }}" class="btn-action btn-edit">Edit
                             <i class="bi bi-pencil"></i>
                         </a>
                         <form action="{{ route('buildings.destroy', $building->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn-action btn-delete" onclick="event.stopPropagation();">
+                            <button type="submit" class="btn-action btn-delete" onclick="event.stopPropagation();">Delete
                                 <i class="bi bi-trash"></i>
                             </button>
                         </form>

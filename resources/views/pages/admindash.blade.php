@@ -1,6 +1,6 @@
-@extends('layout.layout')  <!-- Your main layout file -->
+@extends('layout.layout')
 
 @section('content')
-    @include('components.include.adminnavbar')  <!-- Include the admin navbar -->
-    @include('components.include.adminsidebar')  <!-- Include the admin sidebar -->
+    @include('components.include.adminsidebar')
+    @include('components.include.adminnavbar')
 @endsection
